@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidayah Taqwa V3 - Pro Glass</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="time-vertical">
+        <div class="time-row"><label>WIB</label><b id="wib">00:00</b><span id="swib">00</span></div>
+        <div class="time-row"><label>WITA</label><b id="wita">00:00</b><span id="swita">00</span></div>
+        <div class="time-row"><label>WIT</label><b id="wit">00:00</b><span id="swit">00</span></div>
+    </div>
+
+    <div class="tasbih-box glass">
+        <span id="zikir-name">SUBHANALLAH</span>
+        <div class="tasbih-controls">
+            <div id="reset-btn" onclick="resT()">RESET</div>
+            <div id="counter">0</div>
+            <button id="hit-btn" onclick="countT()">📿</button>
+        </div>
+    </div>
+
+    <div class="section-title">CARI AYAT QURAN (30 JUZ)</div>
+    <div class="quran-box glass">
+        <div class="q-inputs">
+            <input type="number" id="suraNum" placeholder="Surat (1-114)">
+            <input type="number" id="ayaNum" placeholder="Ayat">
+            <button onclick="searchAyat()">CARI</button>
+        </div>
+        <div id="quran-res" class="q-display">
+            <p class="q-hint">Masukkan nomor surat dan ayat</p>
+        </div>
+    </div>
+
+    <div class="section-title">WAKTU SHALAT</div>
+    <div class="sholat-grid">
+        <div class="sholat-card glass"><label>SUBUH</label><b>04:22</b></div>
+        <div class="sholat-card glass"><label>DZUHUR</label><b>11:58</b></div>
+        <div class="sholat-card glass"><label>ASHAR</label><b>15:14</b></div>
+        <div class="sholat-card glass"><label>MAGHRIB</label><b>18:05</b></div>
+        <div class="sholat-card glass"><label>ISYA</label><b>19:15</b></div>
+        <div class="sholat-card glass"><label>IMSAK</label><b>04:12</b></div>
+    </div>
+
+    <div class="section-title">HARI BESAR</div>
+    <div class="countdown-container" id="cd-list"></div>
+
+    <div class="section-title">PANDUAN NIAT</div>
+    <div class="niat-list">
+        <div class="niat-item glass">
+            <div class="niat-trigger" onclick="toggleN(this)">🌙 Puasa (Sahur & Buka) <span>+</span></div>
+            <div class="niat-content">
+                <div class="sub-niat-label">NIAT SAHUR</div>
+                <p class="arab">نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ شَهْرِ رَمَضَانَ هَذِهِ السَّنَةِ لِلَّهِ تَعَالَى</p>
+                <span class="latin">(Nawaitu shauma ghadin 'an ada'i fardhi syahri ramadhana hadzihis sanati lillahi ta'ala)</span>
+                <hr>
+                <div class="sub-niat-label">BUKA (NABI)</div>
+                <p class="arab">ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ</p>
+                <span class="latin">(Dzahaba-zh zhama'u wabtallatil 'uruqu wa tsabatal ajru in sya Allah)</span>
+            </div>
+        </div>
+
+        <div class="niat-item glass">
+            <div class="niat-trigger" onclick="toggleN(this)">🚿 Mandi Wajib <span>+</span></div>
+            <div class="niat-content">
+                <div class="sub-niat-label">LAKI-LAKI / PEREMPUAN</div>
+                <p class="arab">نَوَيْتُ الْغُسْلَ لِرَفْعِ الْحَدَثِ اْلأَكْبَرِ فَرْضًا لِلَّهِ تَعَالَى</p>
+                <div class="sub-niat-label">SETELAH HAID</div>
+                <p class="arab">نَوَيْتُ الْغُسْلَ لِرَفْعِ الْحَدَثِ اْلأَكْبَرِ عَنِ الْحَيْضِ فَرْضًا لِلَّهِ تَعَالَى</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="float-music">
+    <button id="music-btn" class="muted" onclick="toggleM()">
+        <svg class="speaker-icon" viewBox="0 0 24 24">
+            <path d="M11 5L6 9H2V15H6L11 19V5Z" />
+            <path d="M19.07 4.93C20.94 6.81 22 9.31 22 12C22 14.69 20.94 17.19 19.07 19.07" />
+            <path d="M15.54 8.46C16.41 9.34 17 10.59 17 12C17 13.41 16.41 14.66 15.54 15.54" />
+            <line id="mute-slash" x1="1" y1="1" x2="23" y2="23" stroke="white" stroke-width="2" />
+        </svg>
+    </button>
+</div>
+
+<audio id="audio-src" loop src="https://files.catbox.moe/chazip.opus"></audio>
+<script src="script.js"></script>
+</body>
+</html>

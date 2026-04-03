@@ -1,0 +1,79 @@
+:root { --primary: #10b981; --dark: #01140f; --gold: #f59e0b; --glass: rgba(255,255,255,0.08); }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
+body { 
+    margin: 0; background: var(--dark); color: white; 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-image: radial-gradient(circle at top right, #042f24, #01140f);
+    min-height: 100vh; padding-bottom: 50px;
+}
+.container { padding: 30px 20px; max-width: 450px; margin: 0 auto; }
+
+/* IPHONE GLASS EFFECT */
+.glass { 
+    background: var(--glass); 
+    backdrop-filter: blur(25px) saturate(180%); 
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 0.5px solid rgba(255,255,255,0.15); 
+    border-radius: 25px; 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* JAM VERTICAL */
+.time-vertical { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; padding-left: 15px; border-left: 3px solid var(--primary); }
+.time-row b { font-size: 32px; font-weight: 800; text-shadow: 0 0 20px rgba(16,185,129,0.3); }
+.time-row label { font-size: 10px; font-weight: 800; opacity: 0.5; letter-spacing: 2px; display: block; margin-bottom: 5px; }
+
+/* TASBIH */
+.tasbih-box { padding: 25px 20px; margin-bottom: 30px; }
+#zikir-name { font-size: 11px; font-weight: 800; color: var(--primary); letter-spacing: 2px; text-align: center; display: block; margin-bottom: 20px; }
+.tasbih-controls { display: grid; grid-template-columns: 80px 1fr 80px; align-items: center; }
+#counter { font-size: 45px; font-weight: 800; color: var(--gold); text-align: center; }
+#hit-btn { 
+    width: 55px; height: 55px; background: var(--primary); border-radius: 50%; border: none; 
+    font-size: 22px; cursor: pointer; box-shadow: 0 0 25px rgba(16,185,129,0.4);
+    display: flex; align-items: center; justify-content: center; justify-self: end; transition: 0.1s;
+}
+#hit-btn:active { transform: scale(0.88); }
+
+/* QURAN BOX */
+.quran-box { padding: 20px; margin-bottom: 30px; }
+.q-inputs { display: flex; gap: 8px; margin-bottom: 15px; }
+.q-inputs input { 
+    flex: 1; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); 
+    border-radius: 12px; padding: 10px; color: white; font-size: 12px; font-weight: 600;
+}
+.q-inputs button { 
+    background: var(--primary); border: none; border-radius: 12px; 
+    padding: 0 15px; color: white; font-weight: 800; font-size: 11px; cursor: pointer;
+}
+.q-display { min-height: 50px; text-align: right; }
+.q-hint { font-size: 11px; opacity: 0.4; text-align: center; }
+.q-arab { font-size: 20px; color: var(--gold); line-height: 1.8; font-family: serif; direction: rtl; }
+.q-text { font-size: 12px; color: #ccc; margin-top: 10px; text-align: left; line-height: 1.5; }
+
+/* SHOLAT GRID */
+.section-title { font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 1.5px; margin-bottom: 15px; padding-left: 5px; }
+.sholat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 30px; }
+.sholat-card { padding: 15px 10px; text-align: center; }
+.sholat-card b { font-size: 15px; }
+
+/* COUNTDOWN */
+.countdown-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
+.cd-item { background: linear-gradient(90deg, rgba(16,185,129,0.1), transparent); padding: 15px 20px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; border: 0.5px solid rgba(16,185,129,0.2); }
+.cd-label { font-size: 12px; font-weight: 700; color: var(--primary); }
+.cd-time { font-family: monospace; font-size: 12px; color: var(--gold); font-weight: bold; }
+
+/* NIAT */
+.niat-list { display: flex; flex-direction: column; gap: 10px; }
+.niat-trigger { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; font-size: 14px; }
+.niat-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.4s; }
+.niat-content.open { padding: 20px; max-height: 800px; }
+.arab { font-size: 22px; color: var(--gold); text-align: right; line-height: 2; font-family: serif; direction: rtl; }
+.latin { font-size: 11px; color: #aaa; font-style: italic; display: block; margin-top: 5px; text-align: left; }
+
+.float-music { position: fixed; bottom: 30px; right: 25px; z-index: 100; }
+#music-btn { width: 55px; height: 55px; background: var(--primary); border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+.speaker-icon { fill: white; width: 24px; height: 24px; }
+#mute-slash { transition: 0.3s; transform-origin: center; transform: scale(0); opacity: 0; }
+#music-btn.muted #mute-slash { transform: scale(1); opacity: 1; }
+#music-btn.muted { background: #4b5563; }

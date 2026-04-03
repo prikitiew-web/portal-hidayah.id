@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidayah Taqwa V3 - Dynamic Liquid</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body id="dynamic-bg">
+
+<div class="container">
+    <div class="time-vertical">
+        <div class="time-row"><label>WIB</label><b id="wib">00:00</b><span id="swib">00</span></div>
+        <div class="time-row"><label>WITA</label><b id="wita">00:00</b><span id="swita">00</span></div>
+        <div class="time-row"><label>WIT</label><b id="wit">00:00</b><span id="swit">00</span></div>
+    </div>
+
+    <div class="tasbih-box liquid-glass">
+        <span id="zikir-name">SUBHANALLAH</span>
+        <div class="tasbih-controls">
+            <div id="reset-btn" class="reset-red" onclick="showResetModal()">RESET</div>
+            <div id="counter">0</div>
+            <button id="hit-btn" onclick="countT()">📿</button>
+        </div>
+    </div>
+
+    <div class="section-title">CARI AYAT QURAN</div>
+    <div class="quran-box liquid-glass">
+        <div class="q-inputs">
+            <input type="number" id="suraNum" placeholder="Surat">
+            <input type="number" id="ayaNum" placeholder="Ayat">
+            <button onclick="searchAyat()" id="q-btn">CARI</button>
+        </div>
+        <div id="quran-res" class="q-display">
+            <p class="q-hint">Masukkan No. Surat & Ayat</p>
+        </div>
+        <div id="q-nav" class="q-navigation" style="display: none;">
+            <button onclick="nextAyat()">AYAT SELANJUTNYA ↓</button>
+        </div>
+        <div class="q-footer">Al-Qur'an</div>
+    </div>
+
+    <div class="section-title">WAKTU SHALAT</div>
+    <div class="sholat-grid">
+        <div class="sholat-card liquid-glass"><label>SUBUH</label><b>04:22</b></div>
+        <div class="sholat-card liquid-glass"><label>DZUHUR</label><b>11:58</b></div>
+        <div class="sholat-card liquid-glass"><label>ASHAR</label><b>15:14</b></div>
+        <div class="sholat-card liquid-glass"><label>MAGHRIB</label><b>18:05</b></div>
+        <div class="sholat-card liquid-glass"><label>ISYA</label><b>19:15</b></div>
+        <div class="sholat-card liquid-glass"><label>IMSAK</label><b>04:12</b></div>
+    </div>
+</div>
+
+<div id="reset-modal" class="modal-overlay">
+    <div class="modal-content liquid-glass green-theme">
+        <p>Apakah anda yakin ingin reset dzikir?</p>
+        <div class="modal-btns">
+            <button class="btn-yes" onclick="confirmReset(true)">IYA</button>
+            <button class="btn-no" onclick="confirmReset(false)">TIDAK</button>
+        </div>
+    </div>
+</div>
+
+<audio id="audio-src" loop src="https://files.catbox.moe/chazip.opus"></audio>
+<script src="script.js"></script>
+</body>
+</html>

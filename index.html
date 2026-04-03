@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidayah Taqwa V3</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="top-nav glass-solid">
+        <div class="nav-item active" onclick="switchTab('islamic', this)">ISLAMIC</div>
+        <div class="nav-item" onclick="switchTab('download', this)">DOWNLOAD</div>
+        <div class="nav-item" onclick="switchTab('convert', this)">TO MP3</div>
+    </div>
+
+    <div id="islamic-section">
+        <div class="jam-container">
+            <div class="jam-card glass-solid"><label>WIB</label><b id="wib">00:00</b><span id="swib">00</span></div>
+            <div class="jam-card glass-solid"><label>WITA</label><b id="wita">00:00</b><span id="swita">00</span></div>
+            <div class="jam-card glass-solid"><label>WIT</label><b id="wit">00:00</b><span id="swit">00</span></div>
+        </div>
+
+        <div class="tasbih-card glass-solid">
+            <div class="zikir-header">
+                <p id="zikir-arab">سُبْحَانَ اللهِ</p>
+                <p id="zikir-arti">Maha Suci Allah</p>
+            </div>
+            <div class="tasbih-simetris">
+                <div class="reset-link" onclick="openModal()">RESET</div>
+                <div id="counter">0</div>
+                <button id="hit-btn" onclick="countT()">📿</button>
+            </div>
+        </div>
+
+        <div class="section-title">PANDUAN NIAT LENGKAP</div>
+        <div id="niat-list-container"></div>
+    </div>
+
+    <div id="download-section" style="display:none">
+        <div class="dl-card glass-solid">
+            <input type="text" id="dlInput" placeholder="Tempel Link TikTok...">
+            <button onclick="fetchTikTok()" id="main-dl-btn">DOWNLOAD</button>
+            <div id="dl-res"></div>
+        </div>
+    </div>
+
+    <div id="convert-section" style="display:none">
+        <div class="convert-box glass-solid">
+            <label class="upload-area">
+                <input type="file" id="audioUpload" accept="audio/*,video/*" hidden onchange="handleMp3(this)">
+                <div class="upload-icon">📁</div>
+                <span id="file-name">PILIH FILE (MP4, OPUS, M4A)</span>
+            </label>
+            <div id="mp3-dl-zone" style="display:none; margin-top:20px;">
+                <button class="action-btn gold" onclick="downloadAsMp3()">SAVE AS MP3</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="custom-modal" class="modal-overlay">
+    <div class="modal-box glass-solid">
+        <h3>RESET DZIKIR?</h3>
+        <p>Apakah anda ingin reset dzikir?</p>
+        <div class="modal-btns">
+            <button class="btn-no" onclick="closeModal()">TIDAK</button>
+            <button class="btn-yes" onclick="confirmReset()">IYA</button>
+        </div>
+    </div>
+</div>
+
+<div class="float-music">
+    <button id="music-btn" class="muted" onclick="toggleM()"><span id="music-icon">🔈</span></button>
+</div>
+
+<audio id="audio-src" loop src="https://files.catbox.moe/chazip.opus"></audio>
+<script src="script.js"></script>
+</body>
+</html>
